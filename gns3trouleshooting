@@ -8,3 +8,13 @@ reg add "HKLM\System\CurrentControlSet\Control\Lsa" /v LsaCfgFlags /t REG_DWORD 
 bcdedit /set hypervisorlaunchtype off
 
 
+
+Nettoyage agressif des fonctionnalités Windows
+Toujours dans le même PowerShell en administrateur, utilise ces commandes natives au lieu du panneau de configuration pour être sûr de désinstaller tout ce qui touche à Hyper-V et à la plateforme de machine virtuelle :
+PowerShell
+
+Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All -NoRestart
+Disable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform -NoRestart
+Disable-WindowsOptionalFeature -Online -FeatureName HypervisorPlatform -NoRestart
+
+
