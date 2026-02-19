@@ -1,1 +1,10 @@
+Commande 1 (Désactiver la sécurité basée sur la virtualisation) :
+PowerShell
+reg add "HKLM\System\CurrentControlSet\Control\DeviceGuard" /v EnableVirtualizationBasedSecurity
+
+Commande 2 (Désactiver LSA Credential Guard) :
 reg add "HKLM\System\CurrentControlSet\Control\Lsa" /v LsaCfgFlags /t REG_DWORD /d 0 /f
+
+bcdedit /set hypervisorlaunchtype off
+
+
