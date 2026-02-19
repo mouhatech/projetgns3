@@ -18,3 +18,12 @@ Disable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform -NoRe
 Disable-WindowsOptionalFeature -Online -FeatureName HypervisorPlatform -NoRestart
 
 
+##Forcer l'activation du KVM (la VM doit être éteinte) :
+    Ouvre PowerShell en administrateur.
+    Tape cette commande en remplaçant "Nom_De_Ta_VM" par le nom exact de ta machine virtuelle GNS3 :
+Set-VMProcessor -VMName "Nom_De_Ta_VM" -ExposeVirtualizationExtensions $true
+
+###Pour vérifier que ça a bien fonctionné, tu peux lancer :
+Get-VMProcessor -VMName "Nom_De_Ta_VM" | Select-Object ExposeVirtualizationExtensions
+
+
